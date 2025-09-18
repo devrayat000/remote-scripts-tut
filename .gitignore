@@ -24,4 +24,3 @@ dist-ssr
 *.sw?
 js-auto
 js-local
-bun.lock
