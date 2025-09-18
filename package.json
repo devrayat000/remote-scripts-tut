@@ -1,0 +1,10 @@
+{
+    "name": "remote-script-execution",
+    "workspaces": [
+        "js-local",
+        "js-cdn",
+        "js-auto",
+        "ts-local",
+        "ts-auto"
+    ]
+}

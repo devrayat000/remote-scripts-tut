@@ -1,0 +1,108 @@
+import React, { createContext } from "https://esm.sh/react@^18.3.1";
+import PropTypes from "https://esm.sh/prop-types@^15.8.1?deps=react@^18.3.1,react-dom@^18.3.1";
+
+export const ModalContext = createContext();
+
+function ModalProvider({ children }) {
+  const [showLocationModal, setShowLocationModal] = React.useState(false);
+  const [showNotifications, setShowNotifications] = React.useState(false);
+  const [showSellerModal, setShowSellerModal] = React.useState(false);
+  const [showMessageModal, setShowMessageModal] = React.useState(false);
+  const [showDeleteListingsModal, setShowDeleteListingsModal] =
+    React.useState(false);
+
+  function handleLocationToggle() {
+    if (!showLocationModal) {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.add("overflow-y-hidden");
+      setShowLocationModal(true);
+    } else {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("overflow-y-hidden");
+      setShowLocationModal(false);
+    }
+  }
+
+  function handleNotificationToggle() {
+    if (!showNotifications) {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.add("overflow-y-hidden");
+      setShowNotifications(true);
+    } else {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("overflow-y-hidden");
+      setShowNotifications(false);
+    }
+  }
+
+  function handleSellerToggle() {
+    if (!showSellerModal) {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.add("overflow-y-hidden");
+      setShowSellerModal(true);
+    } else {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("overflow-y-hidden");
+      setShowSellerModal(false);
+    }
+  }
+
+  function handleMessageToggle() {
+    if (!showMessageModal) {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.add("overflow-y-hidden");
+      setShowMessageModal(true);
+    } else {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("overflow-y-hidden");
+      setShowMessageModal(false);
+    }
+  }
+
+  function handleDeleteListingsToggle() {
+    if (!showDeleteListingsModal) {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.add("overflow-y-hidden");
+      setShowDeleteListingsModal(true);
+    } else {
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("overflow-y-hidden");
+      setShowDeleteListingsModal(false);
+    }
+  }
+
+  return (
+    <ModalContext.Provider
+      value={{
+        showLocationModal,
+        showNotifications,
+        showSellerModal,
+        showMessageModal,
+        showDeleteListingsModal,
+        handleLocationToggle,
+        handleMessageToggle,
+        handleNotificationToggle,
+        handleSellerToggle,
+        handleDeleteListingsToggle,
+      }}
+    >
+      {children}
+    </ModalContext.Provider>
+  );
+}
+
+ModalProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+export default ModalProvider;
